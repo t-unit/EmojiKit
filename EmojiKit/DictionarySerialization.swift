@@ -13,7 +13,3 @@ public typealias JSONDictionary = [String: Any]
 public protocol DictionaryDeserializable {
     init?(dictionary: JSONDictionary)
 }
-
-public protocol DictionarySerializable {
-    var dictionary: JSONDictionary { get }
-}

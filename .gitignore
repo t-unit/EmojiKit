@@ -31,3 +31,5 @@ DerivedData
 # Carthage/Checkouts
 
 Carthage/Build
+/EmojiKit.xcodeproj/project.xcworkspace/xcshareddata
+.DS_Store

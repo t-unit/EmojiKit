@@ -1,18 +1,18 @@
 # EmojiKit
-EmojiKit is a simple emoji-querying framework in Swift. It is used in [Paste](https://github.com/dasmer/Paste), an Emoji Search app in the [App Store](https://itunes.apple.com/us/app/paste-emoji-search/id1070640289).
+EmojiKit is a simple emoji-querying framework in Swift.
 
 Installation
 ------------
 If you’re using [Carthage](http://github.com/Carthage/Carthage), add EmojiKit to your `Cartfile`:
 
 ```swift
-github "dasmer/EmojiKit"
+github "t-unit/EmojiKit"
 ```
 
 Otherwise, if you're using [CocoaPods](http://cocoapods.org), add EmojiKit to your `Podfile`:
 
 ```ruby
-pod 'EmojiKit', '~> 0.0.1'
+pod 'EmojiKit', :git => 'https://github.com/t-unit/EmojiKit.git'
 ```
 
 Usage
@@ -33,9 +33,7 @@ fetcher.query("food") { emojiResults in
 }
 ```
 
-Contributing
+Where does emoji.json come from?
 ------------
 
-The best way to contribute is by submitting a pull request. You can also submit a [new Github issue](https://github.com/dasmer/EmojiKit/issues/new) if you find bugs or have questions. :octocat:
-
-Please make sure to follow the general coding style and add test coverage for new features!
+Please have a look at [gemoji](https://github.com/github/gemoji/blob/master/db/emoji.json). 
