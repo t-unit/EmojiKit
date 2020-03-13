@@ -8,18 +8,26 @@
 
 import Foundation
 
-private let AllEmojiArray: [Emoji] = {
+public let allEmojis: [Emoji] = {
     guard let path = Bundle(for: EmojiFetchOperation.self).path(forResource: "emoji", ofType: "json"),
         let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
         let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
         let jsonDictionaries = jsonObject as? [JSONDictionary] else { return [] }
 
-    return jsonDictionaries.compactMap { Emoji(dictionary: $0) }
+    let emojis = jsonDictionaries
+        .compactMap { Emoji(dictionary: $0) }
+
+    #if os(iOS)
+        let iosVersion = UIDevice.current.systemVersion
+        return emojis.filter { iosVersion.compare($0.iosVersion, options: .numeric) != .orderedAscending }
+    #else
+        return emojis
+    #endif
 }()
 
-private let AllEmojiDictionary: [String: Emoji]  = {
-    var dictionary = Dictionary<String, Emoji>(minimumCapacity:AllEmojiArray.count)
-    AllEmojiArray.forEach {
+private let allEmojisDictionary: [String: Emoji]  = {
+    var dictionary = Dictionary<String, Emoji>(minimumCapacity:allEmojis.count)
+    allEmojis.forEach {
         dictionary[$0.character] = $0
     }
     return dictionary
@@ -66,7 +74,7 @@ public struct EmojiFetcher {
     }
 
     public func isEmojiRepresentedByString(_ string: String) -> Bool {
-        return AllEmojiDictionary[string] != nil
+        return allEmojisDictionary[string] != nil
     }
 }
 
@@ -88,7 +96,7 @@ private final class EmojiFetchOperation: Operation {
     // MARK: - NSOperation
 
     override func main() {
-        if let emoji = AllEmojiDictionary[searchString] {
+        if let emoji = allEmojisDictionary[searchString] {
             // If searchString is an emoji, return emoji as the result
             results = [emoji]
         } else {
@@ -106,11 +114,11 @@ private final class EmojiFetchOperation: Operation {
         var results = [Emoji]()
 
         // Matches in name
-        results += AllEmojiArray.filter { $0.name.range(of: searchString, options: .caseInsensitive) != nil }
+        results += allEmojis.filter { $0.name.range(of: searchString, options: .caseInsensitive) != nil }
         guard !isCancelled else { return [] }
 
         // Alias matches
-        results += AllEmojiArray.filter { emoji in
+        results += allEmojis.filter { emoji in
             guard results.firstIndex(of: emoji) == nil else { return false }
 
             var validResult = false
@@ -127,7 +135,7 @@ private final class EmojiFetchOperation: Operation {
         guard !isCancelled else { return [] }
 
         // Group matches
-        results += AllEmojiArray.filter { emoji in
+        results += allEmojis.filter { emoji in
             guard results.firstIndex(of: emoji) == nil else { return false }
 
             var validResult = false

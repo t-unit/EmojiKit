@@ -7,11 +7,12 @@
 //
 
 public struct Emoji: Identifiable {
-
     public let name: String
     public let character: String
-    internal let aliases: [String]
-    internal let groups: [String]
+
+    let aliases: [String]
+    let groups: [String]
+    let iosVersion: String
 
     public var id: String {
         // There will never be more that 1 emoji struct for a given character,
@@ -26,12 +27,14 @@ extension Emoji: DictionaryDeserializable {
         guard let name = dictionary["description"] as? String,
             let character = dictionary["emoji"] as? String,
             let aliases = dictionary["aliases"] as? [String],
-            let groups = dictionary["tags"] as? [String] else { return nil }
+            let groups = dictionary["tags"] as? [String],
+            let iosVersion = dictionary["ios_version"] as? String else { return nil }
 
         self.name = name
         self.character = character
         self.aliases = aliases
         self.groups = groups
+        self.iosVersion = iosVersion
     }
 }
 

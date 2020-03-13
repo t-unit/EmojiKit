@@ -14,6 +14,14 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        label.text = EmojiKit.allEmojis
+            .map { $0.character }
+            .joined(separator: ", ")
+    }
+
     @IBAction func editingChanged(_ sender: UITextField) {
         fetcher.query(sender.text ?? "") { emojis in
             self.label.text = emojis
