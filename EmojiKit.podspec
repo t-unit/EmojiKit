@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.ios.deployment_target = '9.2'
   s.source_files = 'EmojiKit/*.swift'
-  s.resources = 'AllEmoji.json'
+  s.resources = 'EmojiKit/emoji.json'
   s.requires_arc = true
 end
