@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2FD740961C3440BA0059751B /* EmojiKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FD740951C3440BA0059751B /* EmojiKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2FD740A21C3441780059751B /* DictionarySerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD7409F1C3441780059751B /* DictionarySerialization.swift */; };
 		2FD740A31C3441780059751B /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD740A01C3441780059751B /* Emoji.swift */; };
 		2FD740A41C3441780059751B /* EmojiFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD740A11C3441780059751B /* EmojiFetcher.swift */; };
 		D2336D59241BCB480004C477 /* emoji.json in Resources */ = {isa = PBXBuildFile; fileRef = D2336D58241BCB480004C477 /* emoji.json */; };
@@ -34,7 +33,6 @@
 		2FD740921C3440BA0059751B /* EmojiKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EmojiKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD740951C3440BA0059751B /* EmojiKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiKit.h; sourceTree = "<group>"; };
 		2FD740971C3440BA0059751B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2FD7409F1C3441780059751B /* DictionarySerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionarySerialization.swift; sourceTree = "<group>"; };
 		2FD740A01C3441780059751B /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		2FD740A11C3441780059751B /* EmojiFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiFetcher.swift; sourceTree = "<group>"; };
 		D2336D58241BCB480004C477 /* emoji.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoji.json; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 		2FD740941C3440BA0059751B /* EmojiKit */ = {
 			isa = PBXGroup;
 			children = (
-				2FD7409F1C3441780059751B /* DictionarySerialization.swift */,
 				2FD740A01C3441780059751B /* Emoji.swift */,
 				2FD740A11C3441780059751B /* EmojiFetcher.swift */,
 				2FD740951C3440BA0059751B /* EmojiKit.h */,
@@ -233,7 +230,6 @@
 			files = (
 				2FD740A41C3441780059751B /* EmojiFetcher.swift in Sources */,
 				2FD740A31C3441780059751B /* Emoji.swift in Sources */,
-				2FD740A21C3441780059751B /* DictionarySerialization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,11 +11,7 @@ import Foundation
 public let allEmojis: [Emoji] = {
     guard let path = Bundle(for: EmojiFetchOperation.self).path(forResource: "emoji", ofType: "json"),
         let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
-        let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
-        let jsonDictionaries = jsonObject as? [JSONDictionary] else { return [] }
-
-    let emojis = jsonDictionaries
-        .compactMap { Emoji(dictionary: $0) }
+        let emojis = try? JSONDecoder().decode([Emoji].self, from: data) else { return [] }
 
     #if os(iOS)
         let iosVersion = UIDevice.current.systemVersion
@@ -56,10 +52,7 @@ public struct EmojiFetcher {
         let operation = EmojiFetchOperation(searchString: searchString)
 
         operation.completionBlock = {
-
-            if operation.isCancelled {
-                return;
-            }
+            guard !operation.isCancelled else { return }
 
             DispatchQueue.main.async {
                 completion(operation.results)

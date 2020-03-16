@@ -21,33 +21,23 @@ public struct Emoji: Identifiable {
     }
 }
 
-extension Emoji: DictionaryDeserializable {
-
-    public init?(dictionary: JSONDictionary) {
-        guard let name = dictionary["description"] as? String,
-            let character = dictionary["emoji"] as? String,
-            let aliases = dictionary["aliases"] as? [String],
-            let groups = dictionary["tags"] as? [String],
-            let iosVersion = dictionary["ios_version"] as? String else { return nil }
-
-        self.name = name
-        self.character = character
-        self.aliases = aliases
-        self.groups = groups
-        self.iosVersion = iosVersion
+extension Emoji: Codable {
+    private enum CodingKeys: String, CodingKey {
+        case name = "description"
+        case character = "emoji"
+        case aliases = "aliases"
+        case groups = "tags"
+        case iosVersion = "ios_version"
     }
 }
 
 extension Emoji: Equatable {
-
     public static func ==(lhs: Emoji, rhs: Emoji) -> Bool {
-        return lhs.id == rhs.id
+        lhs.id == rhs.id
     }
 }
 
-
 extension Emoji: Hashable {
-
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
