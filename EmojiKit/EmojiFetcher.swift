@@ -8,17 +8,35 @@
 
 import Foundation
 
-public let allEmojis: [Emoji] = {
-    guard let path = Bundle(for: EmojiFetchOperation.self).path(forResource: "emoji", ofType: "json"),
-        let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
-        let emojis = try? JSONDecoder().decode([Emoji].self, from: data) else { return [] }
+#if os(iOS)
+    import UIKit
+#endif
 
-    #if os(iOS)
-        let iosVersion = UIDevice.current.systemVersion
-        return emojis.filter { iosVersion.compare($0.iosVersion, options: .numeric) != .orderedAscending }
-    #else
-        return emojis
-    #endif
+public let allEmojis: [Emoji] = {
+    guard let path = Bundle(for: EmojiFetchOperation.self).path(forResource: "emoji", ofType: "json") else {
+        print("Could not find `emoji.json`")
+        return []
+    }
+
+    guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
+        print("Failed to load data of `emoji.json`")
+        return []
+    }
+
+    do {
+        let emojis = try JSONDecoder().decode([Emoji].self, from: data)
+
+        #if os(iOS)
+            let iosVersion = UIDevice.current.systemVersion
+            return emojis.filter { iosVersion.compare($0.iosVersion, options: .numeric) != .orderedAscending }
+        #else
+            return emojis
+        #endif
+
+    } catch {
+        print("Failed to decode `emoji.json` with error: \(error)")
+        return []
+    }
 }()
 
 private let allEmojisDictionary: [String: Emoji]  = {
