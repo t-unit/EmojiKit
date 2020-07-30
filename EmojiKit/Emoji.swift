@@ -9,6 +9,7 @@
 public struct Emoji: Identifiable {
     public let name: String
     public let character: String
+    public let category: String
 
     let aliases: [String]
     let groups: [String]
@@ -25,6 +26,7 @@ extension Emoji: Codable {
     private enum CodingKeys: String, CodingKey {
         case name = "description"
         case character = "emoji"
+        case category = "category"
         case aliases = "aliases"
         case groups = "tags"
         case iosVersion = "ios_version"

@@ -39,6 +39,14 @@ public let allEmojis: [Emoji] = {
     }
 }()
 
+public let emojiCategories: [String] = {
+    Array(Set(allEmojis.map { $0.category }))
+}()
+
+public let emojisByCategory: [String: [Emoji]] = {
+    Dictionary(grouping: allEmojis, by: { $0.category })
+}()
+
 private let allEmojisDictionary: [String: Emoji]  = {
     var dictionary = Dictionary<String, Emoji>(minimumCapacity:allEmojis.count)
     allEmojis.forEach {
@@ -78,6 +86,10 @@ public struct EmojiFetcher {
         }
 
         backgroundQueue.addOperation(operation)
+    }
+
+    public func emojis(for category: String) -> [Emoji] {
+        allEmojis.filter { $0.category == category }
     }
 
     public func cancelFetches() {
