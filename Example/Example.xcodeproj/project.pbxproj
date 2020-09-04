@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		D2F2C2C825023F9800EE3441 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F2C2C625023F9800EE3441 /* Main.storyboard */; };
 		D2F2C2CC25023F9900EE3441 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2F2C2CB25023F9900EE3441 /* Assets.xcassets */; };
 		D2F2C2CF25023F9900EE3441 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F2C2CD25023F9900EE3441 /* LaunchScreen.storyboard */; };
+		D2F2C2DB2502421D00EE3441 /* EmojiKit in Frameworks */ = {isa = PBXBuildFile; productRef = D2F2C2DA2502421D00EE3441 /* EmojiKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2F2C2DB2502421D00EE3441 /* EmojiKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +86,9 @@
 				D2F2C2D8250240DF00EE3441 /* PBXTargetDependency */,
 			);
 			name = Example;
+			packageProductDependencies = (
+				D2F2C2DA2502421D00EE3441 /* EmojiKit */,
+			);
 			productName = Example;
 			productReference = D2F2C2BD25023F9800EE3441 /* Example.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = D2F2C2B425023F9800EE3441;
+			packageReferences = (
+				D2F2C2D92502421D00EE3441 /* XCRemoteSwiftPackageReference "EmojiKit" */,
+			);
 			productRefGroup = D2F2C2BE25023F9800EE3441 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -348,9 +356,25 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		D2F2C2D92502421D00EE3441 /* XCRemoteSwiftPackageReference "EmojiKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/t-unit/EmojiKit";
+			requirement = {
+				branch = "swift-pm";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		D2F2C2D7250240DF00EE3441 /* EmojiKit */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = EmojiKit;
+		};
+		D2F2C2DA2502421D00EE3441 /* EmojiKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2F2C2D92502421D00EE3441 /* XCRemoteSwiftPackageReference "EmojiKit" */;
 			productName = EmojiKit;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -7,7 +7,8 @@ let package = Package(
     products: [
         .library(
             name: "EmojiKit",
-            targets: ["EmojiKit"]),
+            type: .dynamic,
+            targets: ["EmojiKit"])
     ],
     dependencies: [],
     targets: [
