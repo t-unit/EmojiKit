@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "EmojiKit",
+        "repositoryURL": "https://github.com/t-unit/EmojiKit",
+        "state": {
+          "branch": "swift-pm",
+          "revision": "2b7bd1dc59a9ad4cd75f92057d81f70a4097a2cb",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

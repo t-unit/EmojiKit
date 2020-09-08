@@ -13,7 +13,7 @@ import Foundation
 #endif
 
 public let allEmojis: [Emoji] = {
-    guard let path = Bundle(for: EmojiFetchOperation.self).path(forResource: "emoji", ofType: "json") else {
+    guard let path = Bundle.module.path(forResource: "emoji", ofType: "json") else {
         print("Could not find `emoji.json`")
         return []
     }

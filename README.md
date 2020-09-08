@@ -3,17 +3,9 @@ EmojiKit is a simple emoji-querying framework in Swift.
 
 Installation
 ------------
-If you’re using [Carthage](http://github.com/Carthage/Carthage), add EmojiKit to your `Cartfile`:
+Please use the Swift Package Manger to integrate this framework into your project.
 
-```swift
-github "t-unit/EmojiKit"
-```
-
-Otherwise, if you're using [CocoaPods](http://cocoapods.org), add EmojiKit to your `Podfile`:
-
-```ruby
-pod 'EmojiKit', :git => 'https://github.com/t-unit/EmojiKit.git'
-```
+For Carthage and CocoaPods you must use an older version of this framework.
 
 Usage
 -----
