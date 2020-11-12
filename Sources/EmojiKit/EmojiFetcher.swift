@@ -9,7 +9,7 @@
 import Foundation
 
 #if os(iOS)
-    import UIKit
+import UIKit
 #endif
 
 public let allEmojis: [Emoji] = {
@@ -27,10 +27,10 @@ public let allEmojis: [Emoji] = {
         let emojis = try JSONDecoder().decode([Emoji].self, from: data)
 
         #if os(iOS)
-            let iosVersion = UIDevice.current.systemVersion
-            return emojis.filter { iosVersion.compare($0.iosVersion, options: .numeric) != .orderedAscending }
+        let iosVersion = UIDevice.current.systemVersion
+        return emojis.filter { iosVersion.compare($0.iosVersion, options: .numeric) != .orderedAscending }
         #else
-            return emojis
+        return emojis
         #endif
 
     } catch {
@@ -47,8 +47,8 @@ public let emojisByCategory: [String: [Emoji]] = {
     Dictionary(grouping: allEmojis, by: { $0.category })
 }()
 
-private let allEmojisDictionary: [String: Emoji]  = {
-    var dictionary = Dictionary<String, Emoji>(minimumCapacity:allEmojis.count)
+private let allEmojisDictionary: [String: Emoji] = {
+    var dictionary = [String: Emoji](minimumCapacity: allEmojis.count)
     allEmojis.forEach {
         dictionary[$0.character] = $0
     }
@@ -56,7 +56,6 @@ private let allEmojisDictionary: [String: Emoji]  = {
 }()
 
 public struct EmojiFetcher {
-
     // MARK: - Properties
 
     private let backgroundQueue: OperationQueue = {
@@ -64,7 +63,6 @@ public struct EmojiFetcher {
         queue.qualityOfService = .userInitiated
         return queue
     }()
-
 
     // MARK: - Initializers
 
@@ -102,19 +100,16 @@ public struct EmojiFetcher {
 }
 
 private final class EmojiFetchOperation: Operation {
-
     // MARK: - Properties
 
     let searchString: String
     var results: [Emoji] = []
-
 
     // MARK: - Initializers
 
     init(searchString: String) {
         self.searchString = searchString
     }
-
 
     // MARK: - NSOperation
 
@@ -127,7 +122,6 @@ private final class EmojiFetchOperation: Operation {
             results = resultsForSearchString(searchString)
         }
     }
-
 
     // MARK: - Functions
 
