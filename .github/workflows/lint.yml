@@ -22,4 +22,4 @@ jobs:
     - name: SwiftFormat
       run: swiftformat . --swiftversion 5 --lint
     - name: SwiftLint
-      run: swiftlint --path VoiceUp --config .swiftlint.yml
+      run: swiftlint --path Sources --config .swiftlint.yml
