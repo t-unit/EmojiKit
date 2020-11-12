@@ -1,0 +1,36 @@
+--allman false
+--closingparen same-line
+--commas inline
+--conflictmarkers reject
+--elseposition same-line
+--empty void
+--fragment false
+--header ignore
+--ifdef no-indent
+--importgrouping alphabetized
+--indent 4
+--indentcase false
+--linebreaks lf
+--octalgrouping none
+--operatorfunc spaced
+--patternlet inline
+--ranges spaced
+--self remove
+--selfrequired
+--semicolons never
+--stripunusedargs closure-only
+--trailingclosures
+--trimwhitespace always
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--maxwidth 150
+--decimalgrouping 3,5
+--fractiongrouping enabled
+--exponentgrouping enabled
+--hexliteralcase uppercase
+--exponentcase uppercase
+--funcattributes prev-line
+--typeattributes prev-line
+--closingparen balanced
+--enable andOperator, anyObjectProtocol, blankLinesAroundMark, blankLinesAtEndOfScope, blankLinesAtStartOfScope, blankLinesBetweenScopes, braces, consecutiveBlankLines, consecutiveSpaces, duplicateImports, elseOnSameLine, emptyBraces, fileHeader, hoistPatternLet, isEmpty, leadingDelimiters, linebreakAtEndOfFile, numberFormatting, redundantBackticks, redundantBreak, redundantExtensionACL, redundantFileprivate, redundantGet, redundantInit, redundantLet, redundantLetError, redundantNilInit, redundantObjc, redundantParens, redundantPattern, redundantRawValues, redundantReturn, redundantSelf, redundantVoidReturnType, sortedImports, spaceAroundBraces, spaceAroundBrackets, spaceAroundComments, spaceAroundGenerics, spaceAroundOperators, spaceAroundParens, spaceInsideBraces, spaceInsideBrackets, spaceInsideComments, spaceInsideGenerics, spaceInsideParens, specifiers, strongOutlets, strongifiedSelf, todos, trailingClosures, trailingCommas, trailingSpace, typeSugar, unusedArguments, void, wrap, yodaConditions, preferKeyPath, wrapMultilineStatementBraces

@@ -26,15 +26,15 @@ extension Emoji: Codable {
     private enum CodingKeys: String, CodingKey {
         case name = "description"
         case character = "emoji"
-        case category = "category"
-        case aliases = "aliases"
+        case category
+        case aliases
         case groups = "tags"
         case iosVersion = "ios_version"
     }
 }
 
 extension Emoji: Equatable {
-    public static func ==(lhs: Emoji, rhs: Emoji) -> Bool {
+    public static func == (lhs: Emoji, rhs: Emoji) -> Bool {
         lhs.id == rhs.id
     }
 }

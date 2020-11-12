@@ -8,16 +8,19 @@ let package = Package(
         .library(
             name: "EmojiKit",
             type: .dynamic,
-            targets: ["EmojiKit"])
+            targets: ["EmojiKit"]
+        )
     ],
     dependencies: [],
     targets: [
         .target(
             name: "EmojiKit",
             dependencies: [],
-            resources: [.copy("emoji.json")]),
+            resources: [.copy("emoji.json")]
+        ),
         .testTarget(
             name: "EmojiKitTests",
-            dependencies: ["EmojiKit"])
+            dependencies: ["EmojiKit"]
+        )
     ]
 )

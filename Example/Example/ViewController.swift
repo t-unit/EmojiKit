@@ -6,13 +6,13 @@
 //  Copyright © 2020 Tobias Ottenweller. All rights reserved.
 //
 
-import UIKit
 import EmojiKit
+import UIKit
 
 class ViewController: UIViewController {
     let fetcher = EmojiFetcher()
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet var label: UILabel!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -22,7 +22,8 @@ class ViewController: UIViewController {
             .joined(separator: ", ")
     }
 
-    @IBAction func editingChanged(_ sender: UITextField) {
+    @IBAction
+    func editingChanged(_ sender: UITextField) {
         fetcher.query(sender.text ?? "") { emojis in
             self.label.text = emojis
                 .map { $0.character }
@@ -30,4 +31,3 @@ class ViewController: UIViewController {
         }
     }
 }
-
