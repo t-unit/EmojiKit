@@ -1,5 +1,5 @@
-import XCTest
 @testable import EmojiKit
+import XCTest
 
 final class EmojiKitTests: XCTestCase {
     func testEmojisCanBeAccessed() {
@@ -7,6 +7,6 @@ final class EmojiKitTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testEmojisCanBeAccessed", testEmojisCanBeAccessed),
+        ("testEmojisCanBeAccessed", testEmojisCanBeAccessed)
     ]
 }
