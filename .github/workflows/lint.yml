@@ -20,6 +20,4 @@ jobs:
       with:
         url: https://github.com/realm/SwiftLint
     - name: Lint
-      run: |
-        swiftlint --path Sources --config .swiftlint.yml
-        swiftformat . --swiftversion 5 --lint
+      run: Scripts/lint.sh
