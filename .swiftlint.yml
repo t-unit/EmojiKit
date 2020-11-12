@@ -1,0 +1,12 @@
+identifier_name:
+  excluded: 
+    - id
+    - iq
+    - to
+line_length: 150
+type_body_length:  250
+file_length: 500
+
+disabled_rules:
+  - todo
+  - opening_brace
